@@ -47,7 +47,7 @@ makeCacheMatrix <- function(x = matrix()) {
 #     a <- makeCacheMatrix(b)
 
 # 
-# The below matrix is used for computation of the inverse. Initial run will
+# The below function is used for computation of the inverse. Initial run will
 # result in an inverse of the special matrix. But on subsequent run, the function
 # checks if there exists a cached data. If true, it will return the same result.
 # Else the calculation of the inverse is initiated again.
