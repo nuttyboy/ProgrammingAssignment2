@@ -32,7 +32,8 @@ makeCacheMatrix <- function(x = matrix()) {
     setinver <- function(inver)        m <<- inver
     getinver <- function()         m
     
-    # Create a list
+    # Create a list of the above 4. 
+    # This is to name the sub function inside the main one.
     
     list(
         set = set, get = get,
@@ -46,12 +47,15 @@ makeCacheMatrix <- function(x = matrix()) {
 #     b <- matrix(1:4,2,2) -- invertible matrix
 #     a <- makeCacheMatrix(b)
 
-# 
+# a$get() will have the putput of the matrix 'b'
+# a$getinver() will have NULL value for the initial run. 
+
+
 # The below function is used for computation of the inverse. Initial run will
 # result in an inverse of the special matrix. But on subsequent run, the function
 # checks if there exists a cached data. If true, it will return the same result.
 # Else the calculation of the inverse is initiated again.
-# 
+
 # There is a message printed if the cached data exists for the special matrix.
 
 cacheSolve <- function(x, ...) {
@@ -74,5 +78,5 @@ cacheSolve <- function(x, ...) {
 #      - If the function is written as one single line, 
 #        eg : cacheSolve(makeCacheMatrix(matrix(1:4,2,2)))
 #        it will run the code correctly, but it will not refer the cache data
-#        (even if it is the same matrix) as the 'm' variable is NULL 
-#        for every run of the first function.
+#        (even if it is the same matrix) as the $getinver() variable is NULL 
+#        for every run of the makeCacheMatrix function.
