@@ -3,8 +3,8 @@
 # 
 # The below 2 functions are designed to help in calculating the inverse of matrix.
 # Matrix inversion requires large computation especially when there are too many
-# rows and columns. Re-running the code for the same matrix (a big matrix) may
-# resulting the same inverse but we end up running the code again, which is time
+# rows and columns. Re-running an inverse code for the same matrix (a big matrix) may
+# result in the same inverse but we end up running the code again, which is time
 # consuming. To simplify this, cache method is involved to reproduce the same 
 # inverse matrix if there is no change in the original matrix.
 # 
@@ -32,7 +32,7 @@ makeCacheMatrix <- function(x = matrix()) {
     setinver <- function(inver)        m <<- inver
     getinver <- function()         m
     
-    # Create a list of the above 4. 
+    # Then we create a list of the above 4 functions. 
     # This is to name the sub function inside the main one.
     
     list(
@@ -44,10 +44,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 # You can assign the above function to an object. eg :
-#     b <- matrix(1:4,2,2) -- invertible matrix
+#     b <- matrix(1:4,2,2)  -- which is an invertible matrix
 #     a <- makeCacheMatrix(b)
 
-# a$get() will have the putput of the matrix 'b'
+# a$get() will have the output of the matrix 'b'
 # a$getinver() will have NULL value for the initial run. 
 
 
@@ -56,7 +56,8 @@ makeCacheMatrix <- function(x = matrix()) {
 # checks if there exists a cached data. If true, it will return the same result.
 # Else the calculation of the inverse is initiated again.
 
-# There is a message printed if the cached data exists for the special matrix.
+# There is a message printed if the cached data of the inverse exists 
+# for the special matrix.
 
 cacheSolve <- function(x, ...) {
     m <- x$getinver()
@@ -77,6 +78,6 @@ cacheSolve <- function(x, ...) {
 # Other notes :
 #      - If the function is written as one single line, 
 #        eg : cacheSolve(makeCacheMatrix(matrix(1:4,2,2)))
-#        it will run the code correctly, but it will not refer the cache data
+#        it will run the code perfectly, but it will not refer the cache data
 #        (even if it is the same matrix) as the $getinver() variable is NULL 
-#        for every run of the makeCacheMatrix function.
+#        everytime you define the makeCacheMatrix function.
