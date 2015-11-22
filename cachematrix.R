@@ -7,7 +7,9 @@
 # result in the same inverse but we end up running the code again, which is time
 # consuming. To simplify this, cache method is involved to reproduce the same 
 # inverse matrix if there is no change in the original matrix.
-# 
+#
+# Here we introduce the <<- operator which can be used to assign a value to an 
+# object in an environment that is different from the current environment. 
 # 
 # The first function below creates a special matrix and inputs it into a list 
 # containing the following :
